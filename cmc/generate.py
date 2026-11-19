@@ -1,26 +1,11 @@
-"""Random multi-tower blocksworld problems and the ckpt3 train / test schedule."""
+"""Random multi-tower blocksworld problems, and the curriculum used to train System 1."""
 
 import itertools
 import random
-import re
 import string
 
 from cmc.blocksworld import Problem, complete_goal, state_from_towers
 
-PHASES = ("single", "multi", "partial", "random")
-MODES = ("train", "test")
-
-ROW = re.compile(
-    r"^(?P<phase>\w+)\s+(?P<name>\S+)\s+blocks\s+(?P<blocks>\d+)\s+"
-    r"reached\s+(?P<reached>\d)\s+sources\s+(?P<sources>.+?)\s+"
-    r"s1_ok\s+(?P<s1_ok>\d+)\s+s2_steps\s+(?P<s2_steps>\d+)\s+s1_bad\s+(?P<s1_bad>\d+)"
-    r"(?:\s+s2_diag\s+(?P<s2_diag>\S+))?\s*$"
-)
-HEADER = re.compile(r"^mode\s+(?P<mode>train|test)\s+tasks\s+(?P<tasks>\d+)\s*$")
-SUMMARY = re.compile(
-    r"^s2_summary\s+no_match\s+(?P<no_match>\d+)\s+multi_match\s+(?P<multi_match>\d+)\s+"
-    r"below_threshold\s+(?P<below_threshold>\d+)\s+loop_cut\s+(?P<loop_cut>\d+)\s*$"
-)
 S2_REASONS = ("no_match", "multi_match", "below_threshold", "loop_cut")
 
 
@@ -143,121 +128,6 @@ def test_holdout(n=4, seed=0, count=None, name_prefix="h"):
         problem = random_problem(n=n, seed=rng.randint(0, 10**9), name_prefix=name_prefix)
         lessons.append(("random", f"random-{index}", problem))
     return lessons
-
-
-def format_action(action):
-    name, args = action
-    return f"{name}({','.join(args)})"
-
-
-def format_s2_diag(result):
-    parts = []
-    for step in result.steps:
-        if step.source != "s2":
-            continue
-        reason = step.s2_reason or "unknown"
-        parts.append(f"{reason}:{format_action(step.action)}")
-    return ";".join(parts) if parts else "(none)"
-
-
-def format_row(phase, name, problem, result):
-    sources = " ".join(step.source for step in result.steps) or "(none)"
-    return (
-        f"{phase} {name} blocks {len(problem.blocks)} "
-        f"reached {int(result.goal_reached)} sources {sources} "
-        f"s1_ok {result.s1_ok} s2_steps {result.s2_steps} s1_bad {result.s1_bad} "
-        f"s2_diag {format_s2_diag(result)}"
-    )
-
-
-def summarize_s2_reasons(rows):
-    """Count s2 reasons from parse_log or run_lessons rows."""
-    counts = {name: 0 for name in S2_REASONS}
-    for row in rows:
-        diags = row[4] if len(row) > 4 else []
-        if isinstance(diags, str):
-            continue
-        for item in diags:
-            reason = item.split(":", 1)[0]
-            if reason in counts:
-                counts[reason] += 1
-    return counts
-
-
-def rule_fingerprint(library):
-    """Stable snapshot of rule identities and confirmation counts."""
-    if library.known_rules:
-        return tuple(sorted(library.counts().items()))
-    rules = getattr(library, "rules", None)
-    if rules is None:
-        rules = getattr(library._impl, "rules", [])
-    parts = []
-    for rule in rules:
-        parts.append((*rule.signature(), int(rule.confirmations)))
-    return tuple(parts)
-
-
-def figure_title(mode, tasks):
-    if mode not in MODES:
-        raise ValueError(f"unknown mode: {mode}")
-    return f"Checkpoint 3 — {mode} · {tasks} tasks"
-
-
-def format_log(mode, rows):
-    if mode not in MODES:
-        raise ValueError(f"unknown mode: {mode}")
-    lines = [f"mode {mode} tasks {len(rows)}"]
-    lines.extend(row[-1] for row in rows)
-    counts = summarize_s2_reasons(rows)
-    lines.append(
-        "s2_summary "
-        f"no_match {counts['no_match']} "
-        f"multi_match {counts['multi_match']} "
-        f"below_threshold {counts['below_threshold']} "
-        f"loop_cut {counts['loop_cut']}"
-    )
-    return "\n".join(lines) + "\n"
-
-
-def parse_log(text):
-    """Parse a train/test log. Returns (mode, tasks, rows).
-
-    Each row is (phase, name, sources, reached, diags).
-    """
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    if not lines:
-        raise ValueError("empty log")
-    header = HEADER.match(lines[0])
-    if not header:
-        raise ValueError(f"missing mode header: {lines[0]}")
-    mode = header.group("mode")
-    tasks = int(header.group("tasks"))
-    rows = []
-    for line in lines[1:]:
-        if SUMMARY.match(line):
-            continue
-        match = ROW.match(line)
-        if not match:
-            raise ValueError(f"unparsed row: {line}")
-        raw = match.group("sources").strip()
-        sources = [] if raw == "(none)" else raw.split()
-        diag_raw = match.groupdict().get("s2_diag")
-        if not diag_raw or diag_raw == "(none)":
-            diags = []
-        else:
-            diags = diag_raw.split(";")
-        rows.append(
-            (
-                match.group("phase"),
-                match.group("name"),
-                sources,
-                match.group("reached") == "1",
-                diags,
-            )
-        )
-    if tasks != len(rows):
-        raise ValueError(f"header tasks {tasks} != rows {len(rows)}")
-    return mode, tasks, rows
 
 
 def _all_on_table(heights, rng, name_prefix):

@@ -81,7 +81,7 @@ def share(sources):
 
 def evaluate(library_factory, kind, train, test, audit_results=True):
     library, s2 = library_factory(), System2(kind)
-    if hasattr(train, "run"):  # an adaptive schedule such as cmc.random_walks.WalkTraining
+    if hasattr(train, "run"):  # an adaptive training schedule, rather than a plain list of problems
         train_sources = train.run(library, s2)
     else:
         train_sources = []

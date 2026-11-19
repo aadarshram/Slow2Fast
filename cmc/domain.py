@@ -1,7 +1,7 @@
 """Operator model of the default domain, read from its PDDL file (domains/blocksworld/domain.pddl).
 
-Kept as module-level names so the checkpoint 1-3 code that imports OPERATORS keeps working, but nothing
-is written by hand here any more: the operators are compiled from the PDDL domain by cmc/pddl.py.
+Kept as module-level names for older code that imports OPERATORS directly, but nothing is written by
+hand here any more: the operators are compiled from the PDDL domain by cmc/pddl.py.
 Lifted parameter slots are ?0, ?1, ... in action-argument order.
 """
 

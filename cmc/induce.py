@@ -1,11 +1,14 @@
 """Induce lifted cue-action rules from System 2 traces and the domain model only.
 
-After each System 2 lesson: induce (or confirm), then PG3 add condition.
-Delete condition is implemented but disabled.
+After each System 2 lesson: induce (or confirm), then try to narrow a colliding rule with
+PG3's add-condition step. Used as the "induce-only" and "induce + add" comparison baselines.
 """
 
 from cmc.blocksworld import apply
 from cmc.domain import OPERATORS, add_effects, lifted_preconditions
+
+
+# ---- the rule and the library ----------------------------------------------------------------
 
 
 class InducedRule:
@@ -135,67 +138,6 @@ class InducedLibrary:
             if not progressed:
                 return
 
-    def _delete_conditions(self):
-        """PG3 Delete Condition on state, goal_pos, and goal_neg (trace-safe only)."""
-        changed = True
-        while changed:
-            changed = False
-            for rule in self.rules:
-                required = set(lifted_preconditions(rule.action_name, rule.param_vars))
-                for index, lit in enumerate(list(rule.state_pos)):
-                    if lit in required and rule.state_pos.count(lit) <= 1:
-                        continue
-                    new_state = list(rule.state_pos)
-                    del new_state[index]
-                    trial = InducedRule(
-                        rule.action_name,
-                        rule.param_vars,
-                        new_state,
-                        list(rule.goal_pos),
-                        list(rule.goal_neg),
-                    )
-                    trial.confirmations = rule.confirmations
-                    if _edit_ok(rule, trial, self.rules, self.traces):
-                        rule.state_pos = trial.state_pos
-                        changed = True
-                        break
-                if changed:
-                    break
-                for index, lit in enumerate(list(rule.goal_pos)):
-                    new_goal = list(rule.goal_pos)
-                    del new_goal[index]
-                    trial = InducedRule(
-                        rule.action_name,
-                        rule.param_vars,
-                        list(rule.state_pos),
-                        new_goal,
-                        list(rule.goal_neg),
-                    )
-                    trial.confirmations = rule.confirmations
-                    if _edit_ok(rule, trial, self.rules, self.traces):
-                        rule.goal_pos = trial.goal_pos
-                        changed = True
-                        break
-                if changed:
-                    break
-                for index, lit in enumerate(list(rule.goal_neg)):
-                    new_neg = list(rule.goal_neg)
-                    del new_neg[index]
-                    trial = InducedRule(
-                        rule.action_name,
-                        rule.param_vars,
-                        list(rule.state_pos),
-                        list(rule.goal_pos),
-                        new_neg,
-                    )
-                    trial.confirmations = rule.confirmations
-                    if _edit_ok(rule, trial, self.rules, self.traces):
-                        rule.goal_neg = trial.goal_neg
-                        changed = True
-                        break
-                if changed:
-                    break
-
     def _repair_fat_goals(self, state, goal, action):
         for rule in self.rules:
             if rule.action_name != action[0]:
@@ -209,6 +151,9 @@ class InducedLibrary:
                 continue
             rule.goal_pos = repaired.goal_pos
             rule.goal_neg = repaired.goal_neg
+
+
+# ---- inducing a new rule from a trace (triangle-table style), and its support functions --------
 
 
 def induce_from_plan(state, goal, plan):
@@ -498,6 +443,9 @@ def _minimize_state(rule, state, goal, action):
     return rule
 
 
+# ---- PG3 add condition: narrow a colliding rule with one more literal -------------------------
+
+
 def _add_condition_to_rule(rule, state, goal, action, rules, traces):
     objects = _related_objects(state, set(action[1]))
     for _pred, args in goal:
@@ -566,31 +514,7 @@ def _add_condition_exclude(rule, state, goal, action, traces):
     return False
 
 
-def _edit_ok(original, trial, rules, traces):
-    if not _consistent(trial, traces):
-        return False
-    for state, goal, action in traces:
-        before = groundings(original, state, goal)
-        after = groundings(trial, state, goal)
-        if after and after != [action]:
-            return False
-        if before == [action] and after != [action]:
-            return False
-    replaced = [trial if rule is original else rule for rule in rules]
-    return _library_ok_on_traces(replaced, traces)
-
-
-def _library_ok_on_traces(rules, traces):
-    for state, goal, action in traces:
-        found = []
-        for rule in rules:
-            for act in groundings(rule, state, goal):
-                found.append(act)
-        if len(found) > 1:
-            return False
-        if len(found) == 1 and found[0] != action:
-            return False
-    return True
+# ---- shared helpers: matching, lifting, grounding, bindings ------------------------------------
 
 
 def _consistent(rule, traces):

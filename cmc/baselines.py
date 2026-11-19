@@ -1,4 +1,4 @@
-"""The checkpoint-3 learners as comparison baselines (blocksworld only: cmc/induce.py reads the default
+"""Comparison baselines for the full mechanism (blocksworld only: cmc/induce.py reads the default
 domain's operators from cmc.domain). The `Dedupe` variants add only one change: two rules proposing the
 same action are agreement, not a clash."""
 
@@ -32,7 +32,7 @@ class _Dedupe:
 
 
 class InduceOnly(InducedLibrary):
-    """ckpt3 induction without the PG3-style add-condition step."""
+    """Trace-guided induction without the add-condition step: the "induce-only" baseline."""
 
     def _add_conditions(self, *args, **kwargs):
         return None

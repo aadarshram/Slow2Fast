@@ -12,8 +12,10 @@ Which script produced which file, matching the report's Setup / E1 / E2 / E4 / E
 | E8 (scaling to larger n) | `scripts/run_e8_scaling.py` + `plot_e8_scaling.py` | `e8_scaling.json` / `.pdf` |
 | future-work line (Barman/Logistics) | `scripts/dev/run_bundle.py`, `scripts/dev/run_standard.py` | `standard_ehc.txt`, `outcomes_barman_bfs.txt` |
 
-E2 and E4 also cross-check against `ckpt6_bfs.txt` / `ckpt6_ehc.txt`, produced by `scripts/run_ckpt6.py`
-(a wider sweep that both scripts above were checked against; numbers match).
+E2 and E4 also cross-check against `ckpt6_bfs.txt` / `ckpt6_ehc.txt`, produced by `scripts/run_sweep.py`
+(a wider sweep that both scripts above were checked against; numbers match). Those two result files
+are leftover from before the results got reorganized and will be folded into the main files above
+in a later pass.
 
 All `*.json` files above are raw per-seed data — rerunning the matching `plot_*.py` redraws the figure
 without retraining anything.

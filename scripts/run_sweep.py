@@ -1,8 +1,7 @@
-"""ckpt3 protocol (same curriculum and frozen holdout) on the PDDL pipeline.
-
-Domain and problems are PDDL; System 2 is pyperplan (--s2 ehc: enforced hill-climbing + hFF, --s2 bfs:
-breadth-first search). Compares the ckpt3 learners, the dedupe-only variants and the contrast learner.
-Problem generation is the only blocksworld-specific step; problems reach the system as parsed PDDL.
+"""Wider sweep over the curriculum protocol used throughout the report: induce-only, the dedupe
+variants, and the full mechanism with its ablations. System 2 is pyperplan (--s2 ehc: enforced
+hill-climbing + hFF, --s2 bfs: breadth-first search). Problem generation is the only
+blocksworld-specific step; problems reach the system as parsed PDDL.
 """
 
 import argparse
@@ -30,8 +29,8 @@ def contrast(**kw):
 
 
 CONFIGS = {
-    "ckpt3 induce-only": InduceOnly,
-    "ckpt3 + add": InducedLibrary,
+    "induce-only": InduceOnly,
+    "induce + add": InducedLibrary,
     "induce-only + dedupe": InduceOnlyDedupe,
     "add + dedupe": InduceAddDedupe,
     "contrast": contrast(),
