@@ -1,4 +1,4 @@
-"""Complexity-ordered discriminators and greedy minimisation with pinned justifications (memory stays bounded)."""
+"""Complexity-ordered discriminators and greedy minimisation"""
 
 import random
 from pathlib import Path

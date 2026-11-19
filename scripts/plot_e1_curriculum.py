@@ -1,4 +1,4 @@
-"""Bar chart from results/curriculum_ablation.json (run_e1_curriculum.py). No re-run needed."""
+"""Bar chart for e1_curriculum)."""
 
 import argparse
 import json
