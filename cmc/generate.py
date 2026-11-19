@@ -4,10 +4,8 @@ import itertools
 import random
 import re
 import string
-from pathlib import Path
 
 from cmc.blocksworld import Problem, complete_goal, state_from_towers
-from cmc.curriculum import SkillLibrary, run_skill_episode
 
 PHASES = ("single", "multi", "partial", "random")
 MODES = ("train", "test")
@@ -172,24 +170,6 @@ def format_row(phase, name, problem, result):
     )
 
 
-def run_lessons(lessons, library, update):
-    """Execute lessons; return rows with sources, reached, diags, and log line."""
-    rows = []
-    for phase, name, problem in lessons:
-        result = run_skill_episode(problem, library, update=update)
-        sources = [step.source for step in result.steps]
-        diags = []
-        for step in result.steps:
-            if step.source != "s2":
-                continue
-            reason = step.s2_reason or "unknown"
-            diags.append(f"{reason}:{format_action(step.action)}")
-        rows.append(
-            (phase, name, sources, result.goal_reached, diags, format_row(phase, name, problem, result))
-        )
-    return rows
-
-
 def summarize_s2_reasons(rows):
     """Count s2 reasons from parse_log or run_lessons rows."""
     counts = {name: 0 for name in S2_REASONS}
@@ -278,47 +258,6 @@ def parse_log(text):
     if tasks != len(rows):
         raise ValueError(f"header tasks {tasks} != rows {len(rows)}")
     return mode, tasks, rows
-
-
-def run_mode(
-    mode,
-    n=4,
-    practice=2,
-    seed=0,
-    random_count=None,
-    test_count=None,
-    known_rules=False,
-    rules_path=None,
-):
-    """Shared train / test runner.
-
-    train: curriculum with learning on; log every lesson; save rules if
-    rules_path is set.
-    test: load saved rules from rules_path (required), then frozen random
-    holdout with learning off. No curriculum warmup.
-    """
-    if mode not in MODES:
-        raise ValueError(f"unknown mode: {mode}")
-    random_count = 100 if random_count is None else random_count
-    test_count = 100 if test_count is None else test_count
-    rules_path = Path(rules_path) if rules_path is not None else None
-
-    if mode == "train":
-        library = SkillLibrary(known_rules=known_rules)
-        lessons = train_curriculum(
-            n=n, practice=practice, seed=seed, random_count=random_count
-        )
-        rows = run_lessons(lessons, library, update=True)
-        if rules_path is not None:
-            library.save(rules_path)
-    else:
-        if rules_path is None:
-            raise FileNotFoundError("test mode requires rules_path to saved rules")
-        library = SkillLibrary.load(rules_path)
-        holdout = test_holdout(n=n, seed=seed, count=test_count)
-        rows = run_lessons(holdout, library, update=False)
-
-    return format_log(mode, rows), library
 
 
 def _all_on_table(heights, rng, name_prefix):

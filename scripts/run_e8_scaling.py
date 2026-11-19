@@ -1,13 +1,6 @@
-"""E8: do lifted rules trained on small instances transfer to larger, unseen ones?
+"""Train once at n=4, freeze, test on held-out sets of increasing size.
 
-Trains the full mechanism (contrast + sat/unsat) once per seed at n=4 (same protocol as
-E1/E2/E4/E6), freezes the library (no further learning), then evaluates that SAME frozen
-library against held-out test sets generated at increasing problem sizes. The training
-distribution never changes; only the test distribution's size grows. audit_results is
-skipped (no exact-distance precision/overhead) since it requires an extra exact search per
-task that reintroduces the same scaling cost this experiment is designed to avoid.
-
-Saves per-seed, per-size results to results/e8_scaling.json.
+Writes results/e8_scaling.json.
 """
 
 import argparse

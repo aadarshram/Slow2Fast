@@ -1,6 +1,4 @@
-"""Grouped bar chart for the curriculum vs. no-curriculum comparison, from a saved
-results/curriculum_ablation.json (see scripts/run_curriculum_ablation.py) -- no re-run needed.
-"""
+"""Bar chart from results/curriculum_ablation.json (run_e1_curriculum.py). No re-run needed."""
 
 import argparse
 import json

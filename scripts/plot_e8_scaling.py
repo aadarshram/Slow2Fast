@@ -1,6 +1,4 @@
-"""Trend-line figure for E8: System 1 share vs. held-out problem size, from a saved
-results/e8_scaling.json (see scripts/run_e8_scaling.py) -- no re-run needed.
-"""
+"""Line plot from results/e8_scaling.json (run_e8_scaling.py). No re-run needed."""
 
 import argparse
 import json

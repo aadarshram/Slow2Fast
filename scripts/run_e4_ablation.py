@@ -1,13 +1,6 @@
-"""E4: which individual design choices in the refinement mechanism are load-bearing?
+"""One-at-a-time ablations of the full mechanism, same protocol as run_e1_curriculum.py.
 
-Same protocol as E1/E2: blocksworld, n=4, System 2 = EHC, curriculum training
-(cmc.generate.train_curriculum), 100 held-out test tasks, 5 seeds. Each row removes (or, for
-threshold, weakens) exactly one design choice from the full mechanism (contrast + sat/unsat)
-and reports the effect on System 1 share and on the no_match/multi_match/below_threshold
-diagnostic breakdown.
-
-Saves full per-seed results to results/e4_ablation.json so the table/figure can be rebuilt
-without rerunning.
+Writes results/e4_ablation.json.
 """
 
 import argparse

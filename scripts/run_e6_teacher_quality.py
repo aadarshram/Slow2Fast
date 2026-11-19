@@ -1,10 +1,6 @@
-"""E6: does a satisficing (sometimes-suboptimal) teacher still teach usable rules?
+"""BFS vs EHC as System 2, full mechanism, same protocol as run_e1_curriculum.py.
 
-Full mechanism (contrast + sat/unsat), identical protocol to E1/E2/E4 (blocksworld, n=4,
-curriculum training, 100 held-out tasks, 5 seeds). The only thing that varies is which search
-procedure instantiates System 2: bfs (exact/optimal) vs ehc (satisficing).
-
-Saves full per-seed results to results/e6_teacher_quality.json.
+Writes results/e6_teacher_quality.json.
 """
 
 import argparse

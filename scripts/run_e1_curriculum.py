@@ -1,15 +1,6 @@
-"""Does the staged curriculum (single -> multi -> partial -> random) matter, or does the same
-System 1 share emerge from unordered practice alone? Trains the full mechanism (contrast + sat/unsat)
-under two conditions with a matched total lesson budget:
+"""Curriculum vs. no-curriculum, same lesson budget, same held-out set per seed.
 
-  curriculum:    cmc.generate.train_curriculum (single -> multi -> partial -> random)
-  no_curriculum: the same number of lessons, all drawn from the random generator from the start
-
-Both conditions are evaluated, per seed, against the SAME held-out test set, so any difference is
-attributable to training order/composition rather than to which held-out tasks happened to be sampled.
-
-Saves raw per-seed results to results/curriculum_ablation.json so the figure can be redrawn without
-rerunning (see scripts/plot_curriculum_ablation.py).
+Writes results/curriculum_ablation.json (plot: scripts/plot_e1_curriculum.py).
 """
 
 import argparse
