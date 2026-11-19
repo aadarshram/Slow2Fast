@@ -8,9 +8,9 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.blocksworld import Tower
-from cmc.episode import run_episode
-from cmc.library import Library
+from slow2fast.blocksworld import Tower
+from slow2fast.episode import run_episode
+from slow2fast.library import Library
 
 
 def main():

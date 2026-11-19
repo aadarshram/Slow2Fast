@@ -12,8 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.generate import test_holdout, train_curriculum
-from cmc.pddl import PddlDomain, problem_from_atoms
+from slow2fast.generate import test_holdout, train_curriculum
+from slow2fast.pddl import PddlDomain, problem_from_atoms
 
 
 def main():

@@ -2,10 +2,10 @@
 
 import unittest
 
-from cmc.blocksworld import Tower
-from cmc.curriculum import FINALS, LESSONS, SkillLibrary, run_skill_episode
-from cmc.induce import groundings, induce_from_plan
-from cmc.planner import search
+from slow2fast.blocksworld import Tower
+from slow2fast.curriculum import FINALS, LESSONS, SkillLibrary, run_skill_episode
+from slow2fast.induce import groundings, induce_from_plan
+from slow2fast.planner import search
 
 
 def sources(result):
@@ -28,7 +28,7 @@ class CompleteGoalFromOneTrace(unittest.TestCase):
 
 class RepairRelaxesFatGoals(unittest.TestCase):
     def test_taller_goal_cue_is_repaired_on_shorter_tower(self):
-        from cmc.induce import InducedLibrary
+        from slow2fast.induce import InducedLibrary
 
         library = InducedLibrary(threshold=2)
         tall = Tower(["a", "b", "c"])

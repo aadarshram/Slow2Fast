@@ -14,10 +14,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc import gripper_problems as GP
-from cmc.contrast_induce import ContrastLibrary
-from cmc.experiment import ensure_deterministic, evaluate, pure_system2_work
-from cmc.pddl import PddlDomain
+from slow2fast import gripper_problems as GP
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.experiment import ensure_deterministic, evaluate, pure_system2_work
+from slow2fast.pddl import PddlDomain
 
 DOMAIN = PddlDomain(ROOT / "domains" / "gripper" / "domain.pddl")
 BIG = dict(max_rooms=4, max_balls=5, max_grippers=3)
@@ -50,7 +50,7 @@ def _job(task):
         big = GP.holdout(DOMAIN, seed + 500, ood, prefix="o", **BIG)
         library = None
         # same trained learner on larger problems: retrain deterministically, then test frozen
-        from cmc.system2 import System2, run_episode
+        from slow2fast.system2 import System2, run_episode
 
         factory = CONFIGS[name]
         lb, s2 = factory(), System2(kind)

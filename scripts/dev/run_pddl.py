@@ -15,9 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.contrast_induce import ContrastLibrary
-from cmc.experiment import ensure_deterministic, evaluate, pure_system2_work
-from cmc.pddl import PddlDomain, load_problem
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.experiment import ensure_deterministic, evaluate, pure_system2_work
+from slow2fast.pddl import PddlDomain, load_problem
 
 
 def load_dir(domain, folder):

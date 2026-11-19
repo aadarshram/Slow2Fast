@@ -17,10 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.contrast_induce import ContrastLibrary, Rule
-from cmc.experiment import ensure_deterministic
-from cmc.pddl import PddlDomain
-from cmc.system2 import System2, run_episode
+from slow2fast.contrast_induce import ContrastLibrary, Rule
+from slow2fast.experiment import ensure_deterministic
+from slow2fast.pddl import PddlDomain
+from slow2fast.system2 import System2, run_episode
 from scripts.run_bundle import build
 
 

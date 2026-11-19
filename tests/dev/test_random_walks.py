@@ -3,12 +3,12 @@
 import random
 from pathlib import Path
 
-from cmc import standard_problems as SP
-from cmc.contrast_induce import ContrastLibrary
-from cmc.experiment import NullLibrary, evaluate
-from cmc.pddl import PddlDomain
-from cmc.random_walks import WalkTraining, goal_predicates, random_walk, walk_problem
-from cmc.system2 import System2
+from slow2fast import standard_problems as SP
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.experiment import NullLibrary, evaluate
+from slow2fast.pddl import PddlDomain
+from slow2fast.random_walks import WalkTraining, goal_predicates, random_walk, walk_problem
+from slow2fast.system2 import System2
 
 ROOT = Path(__file__).resolve().parents[1]
 GRIPPER = PddlDomain(ROOT / "domains" / "gripper" / "domain.pddl")

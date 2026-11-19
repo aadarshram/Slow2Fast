@@ -1,4 +1,4 @@
-"""Bar chart for e1_curriculum)."""
+"""Bar chart for e1_curriculum."""
 
 import argparse
 import json

@@ -2,9 +2,9 @@
 
 import unittest
 
-from cmc.blocksworld import Problem, complete_goal, state_from_towers
-from cmc.curriculum import SkillLibrary, run_skill_episode
-from cmc.induce import InducedRule, groundings
+from slow2fast.blocksworld import Problem, complete_goal, state_from_towers
+from slow2fast.curriculum import SkillLibrary, run_skill_episode
+from slow2fast.induce import InducedRule, groundings
 
 
 def _rule(action_name, param_vars, state_pos, goal_pos, confirmations):

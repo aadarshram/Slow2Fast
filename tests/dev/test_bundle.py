@@ -2,10 +2,10 @@
 
 from pathlib import Path
 
-from cmc import standard_problems as SP  # noqa: F401
-from cmc.contrast_induce import ContrastLibrary, Rule, lifted_pre
-from cmc.pddl import PddlDomain
-from cmc.system2 import System2, run_episode, run_s1_only
+from slow2fast import standard_problems as SP  # noqa: F401
+from slow2fast.contrast_induce import ContrastLibrary, Rule, lifted_pre
+from slow2fast.pddl import PddlDomain
+from slow2fast.system2 import System2, run_episode, run_s1_only
 from tests.test_outcomes import SPANNER, doomed_spanner, lib_with_overgeneral_walk
 
 

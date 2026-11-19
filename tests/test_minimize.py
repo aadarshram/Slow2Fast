@@ -3,9 +3,9 @@
 import random
 from pathlib import Path
 
-from cmc import gripper_problems as GP
-from cmc.contrast_induce import ContrastLibrary, Rule, _complexity, lifted_pre
-from cmc.pddl import PddlDomain
+from slow2fast import gripper_problems as GP
+from slow2fast.contrast_induce import ContrastLibrary, Rule, _complexity, lifted_pre
+from slow2fast.pddl import PddlDomain
 
 ROOT = Path(__file__).resolve().parents[1]
 GRIPPER = PddlDomain(ROOT / "domains" / "gripper" / "domain.pddl")

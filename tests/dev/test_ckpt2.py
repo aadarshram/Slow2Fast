@@ -1,10 +1,10 @@
 import unittest
 
-from cmc.blocksworld import Tower, apply, goal_holds, initial_state
-from cmc.curriculum import FINALS, LESSONS, SkillLibrary, run_skill_episode, sunk_support
-from cmc.episode import run_episode
-from cmc.library import Library
-from cmc.planner import search
+from slow2fast.blocksworld import Tower, apply, goal_holds, initial_state
+from slow2fast.curriculum import FINALS, LESSONS, SkillLibrary, run_skill_episode, sunk_support
+from slow2fast.episode import run_episode
+from slow2fast.library import Library
+from slow2fast.planner import search
 
 
 def sources(result):
@@ -199,7 +199,7 @@ class InduceFromTraces(unittest.TestCase):
 
 def result_state(result):
     state = sunk_support().initial
-    from cmc.blocksworld import apply
+    from slow2fast.blocksworld import apply
 
     for step in result.steps:
         state = apply(state, step.action)

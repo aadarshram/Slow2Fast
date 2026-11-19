@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.generate import MODES, PHASES, make_problem, random_problem, run_mode
+from slow2fast.generate import MODES, PHASES, make_problem, random_problem, run_mode
 
 
 def main():

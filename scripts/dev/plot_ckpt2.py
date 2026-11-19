@@ -13,7 +13,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from cmc.curriculum import FINALS, LESSONS, SkillLibrary, run_skill_episode
+from slow2fast.curriculum import FINALS, LESSONS, SkillLibrary, run_skill_episode
 
 S1 = "#c45c26"
 S2 = "#3d5a80"

@@ -1,4 +1,4 @@
-"""Line plot from results/e8_scaling.json (run_e8_scaling.py). No re-run needed."""
+"""Line plot for e8_scaling."""
 
 import argparse
 import json

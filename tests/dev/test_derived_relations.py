@@ -3,10 +3,10 @@
 import random
 from pathlib import Path
 
-from cmc import standard_problems as SP
-from cmc.contrast_induce import ContrastLibrary
-from cmc.pddl import PddlDomain, problem_text
-from cmc.system2 import System2
+from slow2fast import standard_problems as SP
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.pddl import PddlDomain, problem_text
+from slow2fast.system2 import System2
 
 ROOT = Path(__file__).resolve().parents[1]
 

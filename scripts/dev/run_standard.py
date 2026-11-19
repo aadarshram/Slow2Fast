@@ -17,12 +17,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc import standard_problems as SP
-from cmc.random_walks import WalkTraining
-from cmc.contrast_induce import ContrastLibrary
-from cmc.experiment import ensure_deterministic, evaluate
-from cmc.pddl import PddlDomain
-from cmc.system2 import System2
+from slow2fast import standard_problems as SP
+from slow2fast.random_walks import WalkTraining
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.experiment import ensure_deterministic, evaluate
+from slow2fast.pddl import PddlDomain
+from slow2fast.system2 import System2
 
 KINDS = list(SP.SPECS)
 

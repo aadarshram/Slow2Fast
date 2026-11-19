@@ -3,11 +3,11 @@
 import random
 from pathlib import Path
 
-from cmc import benchmark_problems as BP  # noqa: F401  (keeps imports of the generators exercised)
-from cmc import standard_problems as SP
-from cmc.contrast_induce import ContrastLibrary, Rule
-from cmc.pddl import PddlDomain
-from cmc.system2 import System2, run_episode
+from slow2fast import benchmark_problems as BP  # noqa: F401  (keeps imports of the generators exercised)
+from slow2fast import standard_problems as SP
+from slow2fast.contrast_induce import ContrastLibrary, Rule
+from slow2fast.pddl import PddlDomain
+from slow2fast.system2 import System2, run_episode
 
 ROOT = Path(__file__).resolve().parents[1]
 SPANNER = PddlDomain(ROOT / "domains" / "spanner" / "domain.pddl")
@@ -29,7 +29,7 @@ def doomed_spanner():
 
 def lib_with_overgeneral_walk(**kw):
     lib = ContrastLibrary(SPANNER.operators, SPANNER.apply, outcomes=True, **kw)
-    from cmc.contrast_induce import lifted_pre
+    from slow2fast.contrast_induce import lifted_pre
 
     params = ("?a0", "?a1", "?a2")
     pre = lifted_pre(SPANNER.operators, "walk", params)

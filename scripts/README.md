@@ -1,6 +1,6 @@
 # Scripts
 
-One script per experiment in the report:
+One script per experiment:
 
 - `run_e1_curriculum.py` / `plot_e1_curriculum.py` — curriculum vs no-curriculum
 - `run_e2_reasons.py` — why System 2 is still called (no_match / multi_match / below_threshold)
@@ -10,5 +10,4 @@ One script per experiment in the report:
 - `run_gripper_table.py` — generalization to Gripper (E7)
 - `run_sweep.py` — the wider sweep E2/E4's numbers were cross-checked against
 
-Each `run_*.py` writes its data to `results/`; see `results/README.md` for which file goes with
-which section. `dev/` is everything from earlier checkpoints that isn't part of the final report.
+Each `run_*.py` writes its data to `results/`. `dev/` contains temporary work.

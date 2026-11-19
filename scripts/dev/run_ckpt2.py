@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.curriculum import FINALS, LESSONS, SCHEMAS, SkillLibrary, run_skill_episode
+from slow2fast.curriculum import FINALS, LESSONS, SCHEMAS, SkillLibrary, run_skill_episode
 
 
 def main():

@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.generate import figure_title, parse_log
+from slow2fast.generate import figure_title, parse_log
 
 S1 = "#c45c26"
 S2 = "#3d5a80"

@@ -1,9 +1,9 @@
 import unittest
 
-from cmc.blocksworld import Tower, goal_holds, initial_state
-from cmc.episode import run_episode
-from cmc.library import Library
-from cmc.planner import search
+from slow2fast.blocksworld import Tower, goal_holds, initial_state
+from slow2fast.episode import run_episode
+from slow2fast.library import Library
+from slow2fast.planner import search
 
 
 def sources(result):

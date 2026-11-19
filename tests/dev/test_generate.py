@@ -2,9 +2,9 @@
 
 import unittest
 
-from cmc.blocksworld import Tower, complete_goal, goal_holds, predicates_in
-from cmc.curriculum import SkillLibrary, run_skill_episode
-from cmc.generate import (
+from slow2fast.blocksworld import Tower, complete_goal, goal_holds, predicates_in
+from slow2fast.curriculum import SkillLibrary, run_skill_episode
+from slow2fast.generate import (
     PHASES,
     make_problem,
     random_problem,
@@ -108,14 +108,14 @@ class TrainSchedule(unittest.TestCase):
 
 class TrainVsTestMode(unittest.TestCase):
     def test_test_holdout_is_all_random_default_100(self):
-        from cmc.generate import test_holdout
+        from slow2fast.generate import test_holdout
 
         lessons = test_holdout(n=3, seed=0)
         self.assertEqual(len(lessons), 100)
         self.assertTrue(all(phase == "random" for phase, _name, _problem in lessons))
 
     def test_test_holdout_count_override(self):
-        from cmc.generate import test_holdout
+        from slow2fast.generate import test_holdout
 
         lessons = test_holdout(n=3, seed=1, count=7)
         self.assertEqual(len(lessons), 7)
@@ -124,7 +124,7 @@ class TrainVsTestMode(unittest.TestCase):
         from pathlib import Path
         import tempfile
 
-        from cmc.generate import parse_log, run_mode
+        from slow2fast.generate import parse_log, run_mode
 
         with tempfile.TemporaryDirectory() as tmp:
             rules = Path(tmp) / "rules.json"
@@ -149,7 +149,7 @@ class TrainVsTestMode(unittest.TestCase):
         from pathlib import Path
         import tempfile
 
-        from cmc.generate import parse_log, run_lessons, run_mode, rule_fingerprint, test_holdout
+        from slow2fast.generate import parse_log, run_lessons, run_mode, rule_fingerprint, test_holdout
 
         with tempfile.TemporaryDirectory() as tmp:
             rules = Path(tmp) / "rules.json"
@@ -185,7 +185,7 @@ class TrainVsTestMode(unittest.TestCase):
         from pathlib import Path
         import tempfile
 
-        from cmc.generate import run_mode
+        from slow2fast.generate import run_mode
 
         with tempfile.TemporaryDirectory() as tmp:
             missing = Path(tmp) / "missing.json"
@@ -193,7 +193,7 @@ class TrainVsTestMode(unittest.TestCase):
                 run_mode("test", n=3, seed=0, test_count=2, rules_path=missing)
 
     def test_figure_title_names_mode_and_task_count(self):
-        from cmc.generate import figure_title
+        from slow2fast.generate import figure_title
 
         self.assertEqual(figure_title("train", 125), "Checkpoint 3 — train · 125 tasks")
         self.assertEqual(figure_title("test", 100), "Checkpoint 3 — test · 100 tasks")

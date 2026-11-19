@@ -23,7 +23,7 @@ the way; the final report has the full account.
 ## Repo structure
 
 ```
-cmc/              core library — the domain model, the planner, and the System 1 mechanism
+slow2fast/              core library — the domain model, the planner, and the System 1 mechanism
   contrast_induce.py   the full mechanism (rule representation, specialize/generalize)
   system2.py           System 2 (pyperplan EHC/BFS) and the control loop
   domain.py, pddl.py   PDDL domain model and parsing

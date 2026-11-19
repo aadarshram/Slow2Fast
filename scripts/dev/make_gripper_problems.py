@@ -8,8 +8,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc import gripper_problems as GP
-from cmc.pddl import PddlDomain
+from slow2fast import gripper_problems as GP
+from slow2fast.pddl import PddlDomain
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
     domain = PddlDomain(ROOT / "domains" / "gripper" / "domain.pddl")
     import random
 
-    from cmc.pddl import problem_text
+    from slow2fast.pddl import problem_text
 
     def dump(problems, folder):
         for i, p in enumerate(problems):

@@ -17,11 +17,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc import benchmark_problems as BP
-from cmc.contrast_induce import ContrastLibrary
-from cmc.experiment import ensure_deterministic, evaluate, pure_system2_work
-from cmc.pddl import PddlDomain
-from cmc.system2 import System2, run_episode
+from slow2fast import benchmark_problems as BP
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.experiment import ensure_deterministic, evaluate, pure_system2_work
+from slow2fast.pddl import PddlDomain
+from slow2fast.system2 import System2, run_episode
 
 KINDS = ("barman", "termes", "tidybot")
 PLAN_CAP = {"barman": 30, "termes": 45, "tidybot": 30}

@@ -13,11 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from cmc.contrast_induce import ContrastLibrary
-from cmc.domain import DOMAIN
-from cmc.experiment import ensure_deterministic, lessons_to_problems
-from cmc.generate import test_holdout, train_curriculum
-from cmc.system2 import System2, run_episode
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.domain import DOMAIN
+from slow2fast.experiment import ensure_deterministic, lessons_to_problems
+from slow2fast.generate import test_holdout, train_curriculum
+from slow2fast.system2 import System2, run_episode
 
 
 def library_factory():

@@ -21,7 +21,7 @@ All `*.json` files above are raw per-seed data — rerunning the matching `plot_
 without retraining anything.
 
 `dev/` holds everything from earlier checkpoints and broader exploratory sweeps that aren't part of
-the final report. Not deleted, just not part of the current story — see `cmc/dev/`, `scripts/dev/`,
+the final report. Not deleted, just not part of the current story — see `slow2fast/dev/`, `scripts/dev/`,
 `tests/dev/` for the matching code. Checkpoint results are grouped by number: `dev/ckpt1/` through
 `dev/ckpt6/` (ckpt6 here is only the two heldout variants not already cross-checking E2/E4 above).
 `dev/benchmarks_full.txt`, `bundle_vs_base.txt`, `gripper_*_heldout.txt`, and

@@ -7,16 +7,16 @@ from pathlib import Path
 
 import pytest
 
-from cmc.contrast_induce import ContrastLibrary
-from cmc.generate import test_holdout as holdout_tasks
-from cmc.pddl import PddlDomain, load_problem, parse_problem_text, problem_from_atoms
-from cmc.system2 import System2, run_episode
+from slow2fast.contrast_induce import ContrastLibrary
+from slow2fast.generate import test_holdout as holdout_tasks
+from slow2fast.pddl import PddlDomain, load_problem, parse_problem_text, problem_from_atoms
+from slow2fast.system2 import System2, run_episode
 
 ROOT = Path(__file__).resolve().parents[1]
 BW = PddlDomain(ROOT / "domains" / "blocksworld" / "domain.pddl")
 GRIPPER = PddlDomain(ROOT / "domains" / "gripper" / "domain.pddl")
 
-# The operator dict that used to be written by hand in cmc/domain.py.
+# The operator dict that used to be written by hand in slow2fast/domain.py.
 OLD_OPERATORS = {
     "pickup": {"arity": 1, "pre": (("clear", ("?0",)), ("ontable", ("?0",)), ("handempty", ())),
                "add": (("holding", ("?0",)),),
@@ -34,7 +34,7 @@ OLD_OPERATORS = {
 
 
 def old_applicable(state, blocks):
-    """The hand-written blocksworld move generator that used to live in cmc/blocksworld.py."""
+    """The hand-written blocksworld move generator that used to live in slow2fast/blocksworld.py."""
     state, ordered, actions = set(state), sorted(blocks), []
     for top in ordered:
         for support in ordered:
