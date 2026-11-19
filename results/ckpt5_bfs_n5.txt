@@ -1,0 +1,10 @@
+System 2 = bfs; pure-System-2 test cost: 31950 expansions (mean over 3 seeds)
+config                          train   test   prec  rules  reach  no_m multi below  loop  cost% len/opt
+ckpt3 + add                     0.650  0.700  0.989   42.0  100.0  68.7  36.3   8.0   4.7   39.0   1.016
+                               per-seed test: 0.792 0.704 0.603
+add + dedupe                    0.698  0.789  0.990   38.0  100.0  54.7  18.3   5.3   4.0   26.6   1.016
+                               per-seed test: 0.864 0.761 0.741
+contrast                        0.838  0.933  0.998   21.0  100.0   2.0  20.7   2.0   1.0   17.5   1.004
+                               per-seed test: 0.939 0.933 0.927
+contrast + sat/unsat            0.852  0.943  0.998   18.7  100.0   2.0  19.0   0.0   1.0   14.4   1.004
+                               per-seed test: 0.939 0.955 0.934

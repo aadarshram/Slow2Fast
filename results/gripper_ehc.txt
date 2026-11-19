@@ -1,0 +1,20 @@
+Gripper stage 3, System 2 = pyperplan ehc; train = curriculum + 100 random; test = 100 frozen random
+setting                              test   prec  rules solved  cost% len/opt   OOD(big): S1share  solved  cost%
+original settings                   0.674  0.944   46.2  100.0   50.5   1.062               0.576 30.0/30    67.5
+                                   per-seed test: 0.699 0.596 0.697 0.754 0.626
++ symmetry                          0.844  0.972   37.8  100.0   26.8   1.044               0.726 30.0/30    45.3
+                                   per-seed test: 0.894 0.844 0.868 0.803 0.811
++ symmetry + full cover             0.968  0.974    8.8  100.0    7.9   1.032               0.894 30.0/30    23.3
+                                   per-seed test: 0.972 0.957 0.989 0.960 0.965
++ symmetry + full cover + ties      0.974  0.974    8.8  100.0    6.5   1.032               0.909 30.0/30    19.1
+                                   per-seed test: 0.972 0.966 0.995 0.960 0.978
+  ablate: no sat/unsat              0.971  0.972    9.2  100.0    7.2   1.034               0.905 30.0/30    20.4
+                                   per-seed test: 0.972 0.972 0.995 0.937 0.978
+  ablate: no deferral link          0.754  0.959   20.6  100.0   43.6   1.049               0.603 30.0/30    67.3
+                                   per-seed test: 0.846 0.507 0.814 0.830 0.773
+  ablate: no symmetry               0.803  0.951   11.0  100.0   30.0   1.051               0.713 30.0/30    42.7
+                                   per-seed test: 0.780 0.813 0.839 0.787 0.796
+  ablate: no merge                  0.970  0.976    9.4  100.0    7.0   1.032               0.897 30.0/30    20.2
+                                   per-seed test: 0.963 0.966 0.995 0.948 0.978
+  ablate: no negated literals       0.971  0.973    8.0  100.0    6.8   1.033               0.922 30.0/30    15.4
+                                   per-seed test: 0.972 0.949 0.995 0.960 0.978

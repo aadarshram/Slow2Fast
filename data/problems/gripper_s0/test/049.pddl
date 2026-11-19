@@ -1,0 +1,5 @@
+(define (problem test-049)
+  (:domain gripper)
+  (:objects hro hrv - room hbm - ball hgr - gripper)
+  (:init (at hbm hro) (at-robby hro) (free hgr))
+  (:goal (and (at hbm hrv))))

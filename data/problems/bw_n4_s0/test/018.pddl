@@ -1,0 +1,5 @@
+(define (problem test-018)
+  (:domain blocksworld)
+  (:objects hc hb ha)
+  (:init (clear ha) (clear hb) (clear hc) (handempty) (ontable ha) (ontable hb) (ontable hc))
+  (:goal (and (clear hb) (clear hc) (handempty) (on hb ha) (ontable ha) (ontable hc))))

@@ -1,0 +1,5 @@
+(define (problem train-081)
+  (:domain gripper)
+  (:objects trz trg - room tby tbc - ball tgn - gripper)
+  (:init (at tbc trz) (at tby trg) (at-robby trz) (free tgn))
+  (:goal (and (at tbc trg) (at tby trg))))

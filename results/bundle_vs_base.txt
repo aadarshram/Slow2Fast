@@ -1,0 +1,31 @@
+System 2 = pyperplan bfs; 3 seeds; train 20, test 20 problems per domain; learning-time bundle = outcomes, order, minimize, prune, audit_rate
+
+== gripper
+config                    test S1   solved  S1 alone  rules  sec/job  per-seed S1 share
+base                        0.862  20.0/20    8.7/20    6.7      7.1  0.845 0.890 0.852
+bundle                      0.708  20.0/20    6.3/20   10.7     10.6  0.779 0.890 0.455
+   bundle counters (mean/seed): minimized=11.0 pruned=0.3 audits=24.3 audit_wrong=2.3 outcome_neg=6.0
+
+== ferry
+config                    test S1   solved  S1 alone  rules  sec/job  per-seed S1 share
+base                        0.905  20.0/20   12.0/20    9.0      8.0  0.857 0.910 0.949
+bundle                      0.893  20.0/20   12.3/20    8.0      8.8  0.820 0.909 0.949
+   bundle counters (mean/seed): minimized=9.3 pruned=0.0 audits=32.0 audit_wrong=0.0 outcome_neg=1.7
+
+== miconic
+config                    test S1   solved  S1 alone  rules  sec/job  per-seed S1 share
+base                        0.627  20.0/20    1.7/20   17.0     15.9  0.619 0.558 0.703
+bundle                      0.604  20.0/20    1.7/20   22.0     19.7  0.562 0.551 0.701
+   bundle counters (mean/seed): minimized=43.0 pruned=1.7 audits=21.0 audit_wrong=1.7 outcome_neg=3.3
+
+== spanner
+config                    test S1   solved  S1 alone  rules  sec/job  per-seed S1 share
+base                        0.903  18.7/20   10.3/20    8.7      5.1  0.791 0.917 1.000
+bundle                      0.822  19.7/20    9.7/20   15.7      8.6  0.675 0.791 1.000
+   bundle counters (mean/seed): minimized=15.0 pruned=0.0 audits=21.7 audit_wrong=0.3 outcome_neg=2.0
+
+== delivery
+config                    test S1   solved  S1 alone  rules  sec/job  per-seed S1 share
+base                        0.756  20.0/20    4.3/20   23.7     14.9  0.690 0.752 0.827
+bundle                      0.673  20.0/20    2.3/20   23.7     23.2  0.685 0.765 0.568
+   bundle counters (mean/seed): minimized=40.7 pruned=0.0 audits=20.7 audit_wrong=0.0 outcome_neg=4.7

@@ -1,0 +1,7 @@
+
+== barman, System 2 = pyperplan bfs: 3 seeds; train = curriculum + 25 random; test = 20 frozen random
+learner   test S1   prec deadend  rules  solved  S2cost%  len/opt
+strict      0.744  0.812     3.3   16.3  16.7/20     60.6    1.126
+         per-seed test S1: 0.731 0.743 0.757   per-seed solved: 16 20 14   per-seed dead-ends: 4 0 6   S2 calls (seed 0): multi_match=16 below_threshold=13 loop_cut=35
+outcomes    0.715  0.872     0.0   22.3  20.0/20     66.4    1.224
+         per-seed test S1: 0.721 0.743 0.681   per-seed solved: 20 20 20   per-seed dead-ends: 0 0 0   S2 calls (seed 0): multi_match=16 below_threshold=21 loop_cut=36

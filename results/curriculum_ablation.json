@@ -1,0 +1,240 @@
+{
+  "s2": "ehc",
+  "n": 4,
+  "practice": 2,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "library": "contrast + sat/unsat",
+  "runs": {
+    "0": {
+      "budget": 125,
+      "conditions": {
+        "curriculum": {
+          "s1_alone": 88,
+          "train": 0.8143712574850299,
+          "test": 0.9523809523809523,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 23,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 5,
+            "multi_match": 6,
+            "below_threshold": 3,
+            "loop_cut": 0
+          },
+          "work": 742,
+          "expansions": 265,
+          "evals": 477,
+          "overhead": 1.0
+        },
+        "no_curriculum": {
+          "s1_alone": 87,
+          "train": 0.821875,
+          "test": 0.9455782312925171,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 20,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 4,
+            "multi_match": 10,
+            "below_threshold": 2,
+            "loop_cut": 0
+          },
+          "work": 1154,
+          "expansions": 418,
+          "evals": 736,
+          "overhead": 1.0
+        }
+      }
+    },
+    "1": {
+      "budget": 125,
+      "conditions": {
+        "curriculum": {
+          "s1_alone": 90,
+          "train": 0.7916666666666666,
+          "test": 0.9431818181818182,
+          "prec": 0.9839357429718876,
+          "dead_ends": 0,
+          "rules": 25,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 3,
+            "multi_match": 8,
+            "below_threshold": 0,
+            "loop_cut": 4
+          },
+          "work": 1534,
+          "expansions": 570,
+          "evals": 964,
+          "overhead": 1.03125
+        },
+        "no_curriculum": {
+          "s1_alone": 91,
+          "train": 0.8493589743589743,
+          "test": 0.9393939393939394,
+          "prec": 0.9838709677419355,
+          "dead_ends": 0,
+          "rules": 22,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 1,
+            "multi_match": 9,
+            "below_threshold": 0,
+            "loop_cut": 6
+          },
+          "work": 1725,
+          "expansions": 640,
+          "evals": 1085,
+          "overhead": 1.03125
+        }
+      }
+    },
+    "2": {
+      "budget": 125,
+      "conditions": {
+        "curriculum": {
+          "s1_alone": 93,
+          "train": 0.7916666666666666,
+          "test": 0.96484375,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 24,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 0,
+            "multi_match": 7,
+            "below_threshold": 0,
+            "loop_cut": 2
+          },
+          "work": 487,
+          "expansions": 176,
+          "evals": 311,
+          "overhead": 1.0
+        },
+        "no_curriculum": {
+          "s1_alone": 94,
+          "train": 0.8623595505617978,
+          "test": 0.9765625,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 17,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 0,
+            "multi_match": 5,
+            "below_threshold": 1,
+            "loop_cut": 0
+          },
+          "work": 304,
+          "expansions": 112,
+          "evals": 192,
+          "overhead": 1.0
+        }
+      }
+    },
+    "3": {
+      "budget": 125,
+      "conditions": {
+        "curriculum": {
+          "s1_alone": 97,
+          "train": 0.8085714285714286,
+          "test": 0.9848484848484849,
+          "prec": 0.9961538461538462,
+          "dead_ends": 0,
+          "rules": 23,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 0,
+            "multi_match": 2,
+            "below_threshold": 1,
+            "loop_cut": 1
+          },
+          "work": 447,
+          "expansions": 164,
+          "evals": 283,
+          "overhead": 1.0076335877862594
+        },
+        "no_curriculum": {
+          "s1_alone": 98,
+          "train": 0.8303030303030303,
+          "test": 0.9923664122137404,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 21,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 1,
+            "multi_match": 1,
+            "below_threshold": 0,
+            "loop_cut": 0
+          },
+          "work": 229,
+          "expansions": 85,
+          "evals": 144,
+          "overhead": 1.0
+        }
+      }
+    },
+    "4": {
+      "budget": 125,
+      "conditions": {
+        "curriculum": {
+          "s1_alone": 95,
+          "train": 0.8055555555555556,
+          "test": 0.9745762711864406,
+          "prec": 0.9956521739130435,
+          "dead_ends": 0,
+          "rules": 24,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 0,
+            "multi_match": 2,
+            "below_threshold": 4,
+            "loop_cut": 0
+          },
+          "work": 156,
+          "expansions": 52,
+          "evals": 104,
+          "overhead": 1.0085470085470085
+        },
+        "no_curriculum": {
+          "s1_alone": 89,
+          "train": 0.84,
+          "test": 0.9316239316239316,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 23,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 2,
+            "multi_match": 4,
+            "below_threshold": 10,
+            "loop_cut": 0
+          },
+          "work": 442,
+          "expansions": 154,
+          "evals": 288,
+          "overhead": 1.0
+        }
+      }
+    }
+  }
+}

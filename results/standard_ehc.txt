@@ -1,0 +1,8 @@
+System 2 = pyperplan ehc; 3 seeds; train 30 problems (small to large), test 30 frozen random; total 523s
+domain      test S1   solved  rules  sec/job  rejected   per-seed S1 share
+gripper       0.759  30.0/30   12.3     10.5       0.0   0.713 0.926 0.639
+ferry         0.833  30.0/30   13.3      6.4       0.0   0.811 0.917 0.771
+miconic       0.772  30.0/30   33.3     23.0       0.0   0.739 0.767 0.809
+spanner       0.969  30.0/30   11.3     53.6      70.0   0.959 0.949 1.000
+delivery      0.828  30.0/30   28.0     27.6       0.0   0.816 0.868 0.799
+logistics     0.506  30.0/30   93.7    322.2       0.0   0.342 0.457 0.718

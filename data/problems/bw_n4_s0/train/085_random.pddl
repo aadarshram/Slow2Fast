@@ -1,0 +1,5 @@
+(define (problem train-085-random)
+  (:domain blocksworld)
+  (:objects ta tc td tb)
+  (:init (clear ta) (clear tb) (clear tc) (clear td) (handempty) (ontable ta) (ontable tb) (ontable tc) (ontable td))
+  (:goal (and (clear ta) (clear tb) (handempty) (on tb td) (on td tc) (ontable ta) (ontable tc))))
