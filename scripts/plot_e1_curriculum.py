@@ -68,8 +68,8 @@ def draw(payload, values, out):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data", type=Path, default=ROOT / "results" / "curriculum_ablation.json")
-    parser.add_argument("--out", type=Path, default=ROOT / "results" / "curriculum_ablation.png")
+    parser.add_argument("--data", type=Path, default=ROOT / "results" / "e1_curriculum.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e1_curriculum.png")
     args = parser.parse_args()
     payload, values = load(args.data)
     draw(payload, values, args.out)

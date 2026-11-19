@@ -1,0 +1,56 @@
+{
+  "s2": "ehc",
+  "n": 4,
+  "practice": 2,
+  "seeds": [
+    0
+  ],
+  "library": "contrast + sat/unsat",
+  "runs": {
+    "0": {
+      "budget": 125,
+      "conditions": {
+        "curriculum": {
+          "s1_alone": 88,
+          "train": 0.8143712574850299,
+          "test": 0.9523809523809523,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 23,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 5,
+            "multi_match": 6,
+            "below_threshold": 3,
+            "loop_cut": 0
+          },
+          "work": 742,
+          "expansions": 265,
+          "evals": 477,
+          "overhead": 1.0
+        },
+        "no_curriculum": {
+          "s1_alone": 87,
+          "train": 0.821875,
+          "test": 0.9455782312925171,
+          "prec": 1.0,
+          "dead_ends": 0,
+          "rules": 20,
+          "reach": 100,
+          "tasks": 100,
+          "reasons": {
+            "no_match": 4,
+            "multi_match": 10,
+            "below_threshold": 2,
+            "loop_cut": 0
+          },
+          "work": 1154,
+          "expansions": 418,
+          "evals": 736,
+          "overhead": 1.0
+        }
+      }
+    }
+  }
+}

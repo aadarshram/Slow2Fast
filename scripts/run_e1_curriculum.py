@@ -1,6 +1,6 @@
 """Curriculum vs. no-curriculum, same lesson budget, same held-out set per seed.
 
-Writes results/curriculum_ablation.json (plot: scripts/plot_e1_curriculum.py).
+Writes results/e1_curriculum.json (plot: scripts/plot_e1_curriculum.py).
 """
 
 import argparse
@@ -58,7 +58,7 @@ def main():
     parser.add_argument("--seed-start", type=int, default=0)
     parser.add_argument("--n", type=int, default=4)
     parser.add_argument("--practice", type=int, default=2)
-    parser.add_argument("--out", type=Path, default=ROOT / "results" / "curriculum_ablation.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e1_curriculum.json")
     args = parser.parse_args()
 
     seeds = list(range(args.seed_start, args.seed_start + args.seeds))
