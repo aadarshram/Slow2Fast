@@ -8,6 +8,7 @@ One script per experiment:
 - `run_e4_teacher_quality.py` — BFS vs EHC as System 2
 - `run_e5_scaling.py` / `plot_e5_scaling.py` — train at n=4, test on bigger held-out sets
 - `run_gripper_table.py` — generalization to Gripper (E6)
-- `run_sweep.py` — the wider sweep E2/E3's numbers were cross-checked against
 
-Each `run_*.py` writes its data to `results/`. `dev/` contains temporary work.
+Each `run_*.py` writes its data to `results/`. `dev/` contains earlier checkpoints and broader
+sweeps not part of the final report — including `run_sweep.py`, the wider sweep that E2/E3
+were originally checked against (numbers match; superseded by `e2_reasons.json`/`e3_ablation.json`).
