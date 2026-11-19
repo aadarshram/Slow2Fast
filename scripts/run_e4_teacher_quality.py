@@ -1,6 +1,6 @@
-"""BFS vs EHC as System 2, full mechanism, same protocol as run_e1_curriculum.py.
+"""BFS vs EHC as System 2, full mechanism.
 
-Writes results/e6_teacher_quality.json.
+Writes results/e4_teacher_quality.json.
 """
 
 import argparse
@@ -32,7 +32,7 @@ def main():
     parser.add_argument("--seeds", type=int, default=5)
     parser.add_argument("--n", type=int, default=4)
     parser.add_argument("--practice", type=int, default=2)
-    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e6_teacher_quality.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e4_teacher_quality.json")
     args = parser.parse_args()
 
     seeds = list(range(args.seeds))

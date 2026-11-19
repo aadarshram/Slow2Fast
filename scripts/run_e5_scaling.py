@@ -1,6 +1,6 @@
 """Train once at n=4, freeze, test on held-out sets of increasing size.
 
-Writes results/e8_scaling.json.
+Writes results/e5_scaling.json.
 """
 
 import argparse
@@ -59,7 +59,7 @@ def main():
     parser.add_argument("--test-sizes", type=int, nargs="+", default=[4, 5, 6, 8])
     parser.add_argument("--test-count", type=int, default=100)
     parser.add_argument("--budget", type=int, default=20000, help="expansion cap per plan() call; 0 = unbounded")
-    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e8_scaling.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e5_scaling.json")
     args = parser.parse_args()
     budget = args.budget or None
 

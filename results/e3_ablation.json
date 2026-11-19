@@ -1,0 +1,194 @@
+{
+  "s2": "ehc",
+  "n": 4,
+  "practice": 2,
+  "seeds": [
+    0
+  ],
+  "runs": {
+    "full": {
+      "train": [
+        0.8143712574850299
+      ],
+      "test": [
+        0.9523809523809523
+      ],
+      "rules": [
+        23
+      ],
+      "no_match": [
+        5
+      ],
+      "multi_match": [
+        6
+      ],
+      "below_threshold": [
+        3
+      ],
+      "loop_cut": [
+        0
+      ]
+    },
+    "no_merge": {
+      "train": [
+        0.8313253012048193
+      ],
+      "test": [
+        0.9295302013422819
+      ],
+      "rules": [
+        21
+      ],
+      "no_match": [
+        8
+      ],
+      "multi_match": [
+        4
+      ],
+      "below_threshold": [
+        5
+      ],
+      "loop_cut": [
+        4
+      ]
+    },
+    "no_deferral_link": {
+      "train": [
+        0.8162650602409639
+      ],
+      "test": [
+        0.9047619047619048
+      ],
+      "rules": [
+        20
+      ],
+      "no_match": [
+        10
+      ],
+      "multi_match": [
+        12
+      ],
+      "below_threshold": [
+        4
+      ],
+      "loop_cut": [
+        2
+      ]
+    },
+    "no_symmetry": {
+      "train": [
+        0.8143712574850299
+      ],
+      "test": [
+        0.9523809523809523
+      ],
+      "rules": [
+        23
+      ],
+      "no_match": [
+        5
+      ],
+      "multi_match": [
+        6
+      ],
+      "below_threshold": [
+        3
+      ],
+      "loop_cut": [
+        0
+      ]
+    },
+    "spec_after_1_clash": {
+      "train": [
+        0.8106508875739645
+      ],
+      "test": [
+        0.8167701863354038
+      ],
+      "rules": [
+        24
+      ],
+      "no_match": [
+        5
+      ],
+      "multi_match": [
+        38
+      ],
+      "below_threshold": [
+        6
+      ],
+      "loop_cut": [
+        10
+      ]
+    },
+    "no_negated_literals": {
+      "train": [
+        0.8143712574850299
+      ],
+      "test": [
+        0.9081632653061225
+      ],
+      "rules": [
+        24
+      ],
+      "no_match": [
+        5
+      ],
+      "multi_match": [
+        22
+      ],
+      "below_threshold": [
+        0
+      ],
+      "loop_cut": [
+        0
+      ]
+    },
+    "no_full_cover": {
+      "train": [
+        0.7844311377245509
+      ],
+      "test": [
+        0.9251700680272109
+      ],
+      "rules": [
+        26
+      ],
+      "no_match": [
+        10
+      ],
+      "multi_match": [
+        6
+      ],
+      "below_threshold": [
+        4
+      ],
+      "loop_cut": [
+        2
+      ]
+    },
+    "threshold_1": {
+      "train": [
+        0.8047337278106509
+      ],
+      "test": [
+        0.9044585987261147
+      ],
+      "rules": [
+        25
+      ],
+      "no_match": [
+        1
+      ],
+      "multi_match": [
+        21
+      ],
+      "below_threshold": [
+        0
+      ],
+      "loop_cut": [
+        8
+      ]
+    }
+  }
+}

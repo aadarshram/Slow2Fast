@@ -1,6 +1,6 @@
 """Why does System 2 still get called: no_match, multi_match, below_threshold?
 
-induce-only (no refinement) vs. the full mechanism, same seeds and tasks as run_e1_curriculum.py.
+induce-only (no refinement) vs. the full mechanism.
 Writes results/e2_reasons.json.
 """
 

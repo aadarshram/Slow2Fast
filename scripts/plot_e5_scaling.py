@@ -1,4 +1,4 @@
-"""Line plot for e8_scaling."""
+"""Line plot for e5_scaling."""
 
 import argparse
 import json
@@ -56,8 +56,8 @@ def draw(payload, out):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data", type=Path, default=ROOT / "results" / "e8_scaling.json")
-    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e8_scaling.pdf")
+    parser.add_argument("--data", type=Path, default=ROOT / "results" / "e5_scaling.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e5_scaling.pdf")
     args = parser.parse_args()
     payload = load(args.data)
     draw(payload, args.out)

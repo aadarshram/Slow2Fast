@@ -54,14 +54,14 @@ stated otherwise. Full detail is in the report.
 - **Why System 2 is still needed (E2)**: without the refinement step, System 2 is called
   mostly because rules collide (0.70 share, ~104 collisions per 100 tasks); the full
   mechanism cuts that to ~5 collisions and reaches 0.96 share.
-- **Which parts of the mechanism matter (E4)**: resolving a collision by deferring rather
+- **Which parts of the mechanism matter (E3)**: resolving a collision by deferring rather
   than forcing a bad edit, and requiring repeated evidence before specializing a rule, both
   matter a lot; a few other components barely move the numbers in blocksworld.
-- **Does the teacher need to be optimal (E6)**: a satisficing planner (EHC) teaches about as
+- **Does the teacher need to be optimal (E4)**: a satisficing planner (EHC) teaches about as
   well as an optimal one (BFS) — close coverage, close precision, close path-length overhead.
-- **Does it transfer to bigger problems (E8)**: a library trained at 4 blocks still reaches
+- **Does it transfer to bigger problems (E5)**: a library trained at 4 blocks still reaches
   0.82 share at 8 blocks — coverage declines gradually, not sharply, as size grows.
-- **Does it transfer to a different domain (E7)**: the same mechanism, unmodified, reaches
+- **Does it transfer to a different domain (E6)**: the same mechanism, unmodified, reaches
   0.97 share in Gripper.
 
 ## How to run

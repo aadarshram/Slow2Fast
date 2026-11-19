@@ -1,7 +1,7 @@
-"""Wider sweep over the curriculum protocol used throughout the report: induce-only, the dedupe
+"""Wider sweep over the curriculum protocol: induce-only, the dedupe
 variants, and the full mechanism with its ablations. System 2 is pyperplan (--s2 ehc: enforced
-hill-climbing + hFF, --s2 bfs: breadth-first search). Problem generation is the only
-blocksworld-specific step; problems reach the system as parsed PDDL.
+hill-climbing + hFF, --s2 bfs: breadth-first search). Problem generation is
+blocksworld-specific. Problems reach the system as parsed PDDL.
 """
 
 import argparse

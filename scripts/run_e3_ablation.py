@@ -1,6 +1,6 @@
-"""One-at-a-time ablations of the full mechanism, same protocol as run_e1_curriculum.py.
+"""One-at-a-time ablations of the full mechanism.
 
-Writes results/e4_ablation.json.
+Writes results/e3_ablation.json.
 """
 
 import argparse
@@ -45,7 +45,7 @@ def main():
     parser.add_argument("--seeds", type=int, default=5)
     parser.add_argument("--n", type=int, default=4)
     parser.add_argument("--practice", type=int, default=2)
-    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e4_ablation.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "results" / "e3_ablation.json")
     args = parser.parse_args()
 
     seeds = list(range(args.seeds))
