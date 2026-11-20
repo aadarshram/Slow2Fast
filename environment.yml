@@ -1,4 +1,4 @@
-name: cmc_project
+name: slow2fast
 channels:
   - defaults
 dependencies:
@@ -36,4 +36,4 @@ dependencies:
   - zlib=1.3.2=h47b2149_0
   - pip:
       - pyperplan==2.1
-prefix: /home/aadarsh-ram/miniconda3/envs/cmc_project
+prefix: /home/aadarsh-ram/miniconda3/envs/slow2fast

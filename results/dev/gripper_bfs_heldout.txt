@@ -1,7 +1,0 @@
-Gripper stage 3, System 2 = pyperplan bfs; train = curriculum + 100 random; test = 100 frozen random
-setting                              test   prec  rules solved  cost% len/opt   OOD(big): S1share  solved  cost%
-original settings                   0.678  0.997   21.0  100.0   62.8   1.002               0.579 30.0/30    83.3
-+ symmetry                          0.815  0.992   20.8  100.0   45.1   1.006               0.712 30.0/30    75.2
-+ symmetry + full cover             0.949  0.996    5.0  100.0   21.8   1.003               0.896 30.0/30    37.9
-+ symmetry + full cover + ties      0.978  0.997    5.0  100.0   10.8   1.003               0.952 30.0/30    12.7
-  ablate: no deferral link          0.847  0.999   14.4  100.0   54.3   1.001               0.731 30.0/30    88.1

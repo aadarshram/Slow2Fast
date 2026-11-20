@@ -1,7 +1,0 @@
-Gripper stage 3, System 2 = pyperplan ehc; train = curriculum + 100 random; test = 100 frozen random
-setting                              test   prec  rules solved  cost% len/opt   OOD(big): S1share  solved  cost%
-original settings                   0.627  0.981   45.0  100.0   48.9   1.031               0.534 30.0/30    64.8
-+ symmetry                          0.764  0.977   40.6  100.0   33.9   1.034               0.697 30.0/30    52.2
-+ symmetry + full cover             0.951  0.984    7.2  100.0    9.8   1.021               0.895 30.0/30    20.8
-+ symmetry + full cover + ties      0.951  0.984    7.2  100.0    9.8   1.021               0.895 30.0/30    20.8
-  ablate: no deferral link          0.818  0.999   26.6  100.0   34.8   1.018               0.702 30.0/30    57.8
